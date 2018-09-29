@@ -1,0 +1,8 @@
+{
+  "application": "",
+  "boundedContext": "63b49bb2-3640-397f-5e92-15475de0f26e",
+  "boundedContextName": "Analytics",
+  "backend": {
+    "language": "csharp"
+  }
+}
