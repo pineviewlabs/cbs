@@ -117,6 +117,8 @@ class Reporting extends React.Component {
               <button onClick={this.openExporter()}>Export</button>
             </div>
 
+              <p>Total reports: {caseReports.length}</p>
+
             <QuickFilters currentFilter={currentFilter} />
 
             <DataTable

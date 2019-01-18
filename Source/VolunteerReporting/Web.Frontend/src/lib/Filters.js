@@ -2,7 +2,7 @@ import ReportStatus from './ReportStatus';
 
 export default class Filters {
   static applyFilter(data, filterName) {
-    const filterItem = Filters[filterName];
+    const filterItem = Filters.List[filterName];
     const filterFn = Array.isArray(filterItem) ? filterItem[1] : null;
 
     return filterFn ? data.filter(filterFn) : data;

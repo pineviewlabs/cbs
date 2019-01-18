@@ -148,6 +148,8 @@ class VolunteerReporting extends Component {
           <button onClick={this.openExporter()}>Export</button>
         </div>
 
+        <p>Total cases: </p>
+
         <table className="table table-bordered table-striped">
           <tbody>
             <tr>
