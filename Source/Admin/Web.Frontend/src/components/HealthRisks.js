@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { utils } from '@ifrc-cbs/common-react-ui';
 import AdminController from '../AdminController';
-import Nav from './Nav';
+import {NavLink} from 'react-router-dom';
 
 const {parseQueryString} = utils;
 
@@ -57,7 +57,9 @@ class Projects extends React.Component {
         </Helmet>
         <article id="healthRisks-list">
           <section className="container">
-            <Nav />
+            <NavLink to='/projects'>Projects</NavLink>
+            <NavLink to='/healthrisks'>Heath Risks</NavLink>
+            <NavLink to='/userManagement'>User Management</NavLink>
             <h3>Health risks Overview</h3>
           </section>
         </article>

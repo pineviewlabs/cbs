@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { utils } from '@ifrc-cbs/common-react-ui';
 import AdminController from '../AdminController';
 
-import ProjectsPage from './Projects/ProjectsPage';
+import ListHeader from './Projects/ListHeader';
+import ProjectsList from './Projects/ProjectsList';
 
 const {parseQueryString} = utils;
 
@@ -29,6 +30,15 @@ class Projects extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.props.fetchAllProjects();
+    console.log('componentDidMount', this.props.projects)
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate', this.props.projects)
+  }
+
   static parseLocationString(location = {}) {
     const params = {};
 
@@ -47,6 +57,7 @@ class Projects extends React.Component {
   render() {
     const title = 'Projects';
     const description = '';
+    const {projects} = this.props;
 
     return (
       <React.Fragment>
@@ -58,7 +69,8 @@ class Projects extends React.Component {
         </Helmet>
         <article id="projects-list">
           <section className="container">
-            <ProjectsPage />
+            <ListHeader/>
+            <ProjectsList projects={projects} />
           </section>
         </article>
       </React.Fragment>

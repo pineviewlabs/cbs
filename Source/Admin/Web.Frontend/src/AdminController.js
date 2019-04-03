@@ -1,5 +1,4 @@
 import {BaseController} from 'repertoire';
-
 import AdminService from './AdminService';
 
 const ApiBaseUrl = process.env.API_URL;
@@ -12,7 +11,7 @@ export default class AdminController extends BaseController {
   constructor(component) {
     super(component);
 
-    this.reportsService = new AdminService({
+    this.adminService = new AdminService({
       baseUrl: ApiBaseUrl
     });
 
@@ -25,4 +24,7 @@ export default class AdminController extends BaseController {
     this.connect();
   }
 
+  fetchAllProjects(params) {
+    return this.adminService.fetchAllProjects(params);
+  }
 }
