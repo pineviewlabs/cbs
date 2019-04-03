@@ -12,11 +12,12 @@
     "node:server": "cross-env PORT=3001 NODE_ENV=development cbs-node-server",
     "local:server": "cross-env PORT=3001 TESTING_MODE=true NODE_ENV=development cbs-node-server",
     "test": "cross-env HEADLESS_MODE=1 nightwatch",
-    "export": "babel --config-file=./.babel/.babelrc --verbose --out-dir=es src && cp -R src/assets es",
+    "export": "babel --config-file=./.babel/.babelrc --verbose --out-dir=es src && ncp src/assets es/assets",
     "clean": "rimraf es",
     "parcel:dev": "cross-env NODE_ENV=development parcel ./public/index.html",
     "prepare": "npm run clean && npm run export",
     "eslint": "eslint src",
+    "preinstall": "cd ../../Navigation/Web.Common && npm install",
     "build": "npm run eslint && npm run prepare"
   },
   "main": "es/exports.js",
@@ -28,13 +29,18 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.2.0",
+    "@ifrc-cbs/admin": "0.0.4",
+    "@ifrc-cbs/common-react-ui": "file:../../Navigation/Web.Common",
+    "@types/googlemaps": "^3.30.16",
+    "@types/markerclustererplus": "^2.1.33",
+    "@types/react": "^16.7.20",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.2.0",
+    "evergreen-ui": "^4.9.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
-    "cross-env": "^5.2.0",
-    "redux": "^4.0.1",
-    "@ifrc-cbs/common-react-ui": "file:../../Navigation/Web.Common",
-    "@ifrc-cbs/admin": "0.0.4"
+    "react-google-maps": "^9.4.5",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -60,6 +66,7 @@
     "react-router-dom": "^4.3.1",
     "repertoire": "^0.1.6",
     "rimraf": "^2.6.3",
+    "ncp": "^2.0.0",
     "sass": "^1.16.0"
   }
 }
